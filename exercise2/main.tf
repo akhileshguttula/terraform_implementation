@@ -1,13 +1,22 @@
 
 resource "aws_instance" "instance_tf" {
-  ami           = "ami-0b6d9d3d33ba97d99" 
-  instance_type = "t3.micro"
+  ami           = var.ami_id
+  instance_type = var.instance_type
 
-  key_name      = "terraform_implementation_kp"
+  key_name      = var.key_name
 
-  vpc_security_group_ids = ["sg-02ad7c6642356c012"]
+  vpc_security_group_ids = [var.security_group]
 
   tags = {
-    Name = "instance_1"
+    Name = var.instance_name
+  }
+}
+
+resource "aws_s3_bucket" "bucket_data" {
+  bucket = var.bucket_name
+
+  tags = {
+    Name        = var.bucket_name
+    Environment = "Dev"
   }
 }
