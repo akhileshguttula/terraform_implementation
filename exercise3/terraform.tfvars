@@ -1,0 +1,7 @@
+ami_id         = "ami-0b6d9d3d33ba97d99"
+key_name       = "terraform_implementation_kp"
+instance_type  = "t3.micro"
+security_group = "sg-02ad7c6642356c012"
+bucket_name    = "akhilesh-s3-datacube"
+aws_region     = "us-east-1"
+environment    = "dev"
