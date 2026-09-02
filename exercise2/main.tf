@@ -20,3 +20,19 @@ resource "aws_s3_bucket" "bucket_data" {
     Environment = "Dev"
   }
 }
+
+resource "aws_ebs_volume" "my_ebs_volume" {
+  availability_zone  = aws_instance.instance_tf.availability_zone
+  type              = var.type
+  size              = var.size
+
+  tags = {
+    Name = var.ebs_name
+  }
+}
+
+resource "aws_volume_attachment" "ecs_ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.my_ebs_volume.id
+  instance_id = aws_instance.instance_tf.id
+}

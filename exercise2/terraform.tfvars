@@ -5,4 +5,6 @@ instance_type = "t3.micro"
 security_group = "sg-02ad7c6642356c012"
 bucket_name = "akhilesh-s3-datacube"
 aws_region = "us-east-1" 
-
+type="gp3"
+size="10"
+ebs_name="my_ebs_expansion"

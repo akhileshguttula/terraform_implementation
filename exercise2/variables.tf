@@ -33,3 +33,26 @@ variable "bucket_name" {
   description = "s3 bucket name for connecting instance"
   type        = string
 }
+
+
+
+
+
+
+
+
+
+variable "type" {
+  description = "storage type for the instance"
+  type        = string
+}
+
+variable "size" {
+  description = "size of the ebs volume to expand the storage of the instance"
+  type        = string
+}
+
+variable "ebs_name" {
+  description = "size of the ebs volume to expand the storage of the instance"
+  type        = string
+}
