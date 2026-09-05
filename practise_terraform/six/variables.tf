@@ -1,0 +1,61 @@
+variable "aws_region" {
+  description = "The AWS region to deploy resources into"
+  type        = string
+}
+
+variable "ami_id" {
+  description = "The Amazon Machine Image (AMI) ID for the EC2 instance"
+  type        = string
+}
+
+variable "instance_type" {
+  description = "The size/type of the EC2 instance"
+  type        = string
+}
+
+variable "key_name" {
+  description = "key pair name"
+  type        = string
+}
+
+variable "security_group" {
+  description = "instance security group id "
+  type        = string
+}
+
+variable "bucket_name" {
+  description = "s3 bucket name for connecting instance"
+  type        = string
+}
+
+variable "environment" {
+  description = "environment name"
+  type        = string
+}
+variable "availability_zone" {
+  description = "availability zone of the ebs server"
+  type        = string
+}
+variable "size" {
+  description = "size ebs server"
+  type        = string
+}
+
+
+variable "type" {
+  description = "type of the ebs server"
+  type        = string
+}
+
+
+variable "ebs_name" {
+  description = "availability zone of the ebs server"
+  type        = string
+}
+
+
+variable "vpc_id" {
+  description = "VPC ID for the cafe security group"
+  type        = string
+}
+
