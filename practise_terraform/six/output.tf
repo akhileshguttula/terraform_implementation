@@ -50,3 +50,18 @@ output "create_time" {
   description = "The name arn of the bucket"
   value       = module.ebs.create_time
 }
+
+
+
+
+
+
+
+
+
+
+
+output "security_group_id" {
+  description = "The ID of the created security group"
+  value       = module.security_group.security_group_id
+}
