@@ -13,4 +13,5 @@ ebs_name          = "ebs-by-terraform"
 
 
 vpc_id = "vpc-0052aaca846654fc7"
+sg_name ="cafe-sg"
 

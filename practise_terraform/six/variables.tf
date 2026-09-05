@@ -59,3 +59,10 @@ variable "vpc_id" {
   type        = string
 }
 
+
+
+variable "sg_name" {
+  description = "VPC ID for the cafe security group"
+  type        = string
+}
+
