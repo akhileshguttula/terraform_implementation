@@ -42,9 +42,29 @@ module "s3" {
 }
 
 module "ebs" {
-  source      = "./module/ebs"
- availability_zone = var.availability_zone
-  size = var.size
-ebs_name = var.ebs_name
-type = var.type
+  source            = "./module/ebs"
+  availability_zone = var.availability_zone
+  size              = var.size
+  ebs_name          = var.ebs_name
+  type              = var.type
 }
+
+
+
+
+
+module "security_group" {
+  source = "./module/security_group"
+
+  name   = "cafe_sg"
+  vpc_id = var.vpc_id
+
+  tags = {
+    Name = "cafe_sg"
+  }
+}
+
+
+
+
+

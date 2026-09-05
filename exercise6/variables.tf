@@ -52,3 +52,10 @@ variable "ebs_name" {
   description = "availability zone of the ebs server"
   type        = string
 }
+
+
+variable "vpc_id" {
+  description = "VPC ID for the cafe security group"
+  type        = string
+}
+

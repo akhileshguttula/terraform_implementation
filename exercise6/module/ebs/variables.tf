@@ -14,9 +14,9 @@ variable "ebs_name" {
   description = "ebs name of the ebs"
   type        = string
 }
-  
+
 
 variable "type" {
-description = "ebs name of the ebs"
+  description = "ebs name of the ebs"
   type        = string
 }
