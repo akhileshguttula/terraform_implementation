@@ -56,11 +56,11 @@ module "ebs" {
 module "security_group" {
   source = "./module/security_group"
 
-  sg_name   = "cafe_sg"
+  sg_name   = var.sg_name
   vpc_id = var.vpc_id
 
   tags = {
-    sg_name = "cafe_sg"
+    sg_name = var.sg_name
   }
 }
 
