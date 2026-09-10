@@ -1,3 +1,3 @@
 # terraform_implementation
 terraform learning
-learn the working flow of the terraform iac 
+learn the working flow of the terraform IAC
