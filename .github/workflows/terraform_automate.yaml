@@ -45,3 +45,10 @@ jobs:
       # Step 7: Apply the configuration changes (ONLY runs when code is merged into the main branch)
       - name: Terraform Apply
         run: terraform apply -auto-approve -input=false -var-file="dev.tfvars"
+
+      - name: sleep of 10 seconds
+        run: sleep 30
+
+             
+      - name: Terraform Destroy
+        run: terraform Destroy -auto-approve -input=false -var-file="dev.tfvars"
