@@ -10,7 +10,7 @@ jobs:
     name: "Terraform Automation"
     runs-on: ubuntu-latest
 
-#    defaults:
+    defaults:
       run:
         working-directory: practise_terraform/fourth
     # Setup environment variables for cloud credentials (stored securely in GitHub Secrets)
