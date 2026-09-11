@@ -1,0 +1,47 @@
+name: "Terraform CI/CD Pipeline"
+
+on:
+  push:
+    branches:
+      - version1
+
+jobs:
+  terraform:
+    name: "Terraform Automation"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: practise_terraform/fourth
+    # Setup environment variables for cloud credentials (stored securely in GitHub Secrets)
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # For Azure or GCP, use their respective authentication environment variables
+
+    steps:
+      # Step 1: Clone the repository code onto the runner
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2: Install the specified version of Terraform CLI
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.0
+
+      # Step 4: Initialize working directory and download required cloud providers
+      - name: Terraform Init
+        run: terraform init
+
+      # Step 5: Catch syntax errors, invalid references, or structural problems
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Step 6: Generate an execution plan (Runs on both PRs and Main pushes)
+      - name: Terraform Plan
+        run: terraform plan -input=false -var-file="dev.tfvars"
+
+      # Step 7: Apply the configuration changes (ONLY runs when code is merged into the main branch)
+      - name: Terraform Apply
+        run: terraform apply -auto-approve -input=false -var-file="dev.tfvars"
